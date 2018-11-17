@@ -62,16 +62,14 @@ namespace Kontur.Courses.Git
 			var calc = new Calculator();
 			calc.Calculate(new[] { "5" });
 			Assert.IsFalse(calc.Calculate(args).HasValue);
-			Assert.AreEqual(5.0, calc.Calculate(new string[] { }).Value);
+			Assert.AreEqual(5.0, Calc("5").Value);
 		}
 
 		[Test]
 		public void OneArg_BadInput()
 		{
-			var calc = new Calculator();
-			calc.Calculate(new[] { "5" });
-			Assert.IsFalse(calc.Calculate(new[] { "asd" }).HasValue);
-			Assert.AreEqual(5.0, calc.Calculate(new string[] { }).Value);
+			Assert.IsFalse(Calc("asd").HasValue);
+			Assert.AreEqual(5.0, Calc("5").Value);
 		}
 
 	}
